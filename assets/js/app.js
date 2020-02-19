@@ -41,3 +41,16 @@ function xScale(dataForXAxis, chosenXAxis) {
     return xLinearScale;
   
   }
+
+  function yScale(dataForYAxis, chosenYAxis) {
+    // create scales
+    var yLinearScale = d3.scaleLinear()
+      .domain([d3.min(dataForYAxis, d => d[chosenYAxis]) * 0.8,
+        d3.max(dataForYAxis, d => d[chosenYAxis]) * 1.2
+      ])
+      .range([0, height]);
+  
+    return yLinearScale;
+  
+  }
+  
