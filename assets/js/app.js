@@ -88,7 +88,7 @@ function xScale(dataForXAxis, chosenXAxis) {
       .duration(1000)
       .attr("x", d => newXScale(d[chosenXAxis])-12);
   
-    return circlesGroup;
+    return circlesText;
   }
   function renderCirclesY(circlesGroup, newYScale, chosenYAxis) {
 
@@ -104,7 +104,7 @@ function xScale(dataForXAxis, chosenXAxis) {
       .duration(1000)
       .attr("y", d => newYScale(d[chosenYAxis])+5);
   
-    return circlesGroup;
+    return circlesText;
   }
 
 
