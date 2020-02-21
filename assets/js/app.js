@@ -108,30 +108,44 @@ function xScale(dataForXAxis, chosenXAxis) {
   }
 
 
-  function updateToolTip(chosenXAxis, circlesGroup) {
+  function updateToolTip(chosenXAxis, chosenYAxis,circlesGroup) {
 
     if (chosenXAxis === "poverty") {
-      var label = "Poverty %:";
+      var labelx = "Poverty %:";
     }
     else if(chosenXAxis === "age") {
-      var label = "Age (Median):";
+      var labelx = "Age (Median):";
     }
     else {
-      var label = "Household Income:";
+      var labelx = "Household Income:";
+    }
+
+    if (chosenYAxis === "obesity") {
+      var labely = "Obesity %:";
+    }
+    else if(chosenYAxis === "smokes") {
+      var labely = "Smokes %:";
+    }
+    else {
+      var labely = "Lack of HealthCare %:";
     }
 
   
     var toolTip = d3.tip()
-      .attr("class", "tooltip")
+      .attr("class", "d3-tip")
       .offset([80, -60])
       .html(function(d) {
-        return (`${d.obesity}<br>${label} ${d[chosenXAxis]}`);
+        return (`State : ${d.state} <br> ${labely} ${d[chosenYAxis]}<br>${labelx} ${d[chosenXAxis]} <br> <img src="https://3o15h033zmpwracwx2i00rqx-wpengine.netdna-ssl.com/wp-content/uploads/2017/02/welcome_to_florida_sign.jpg" alt="Smiley face" height="42" width="42">`);
       });
   
     circlesGroup.call(toolTip);
   
     circlesGroup.on("mouseover", function(data) {
+      
       toolTip.show(data);
+      d3.select(this)
+      .style("stroke", "black")
+      .style("opacity", 1);
     })
       // onmouseout event
       .on("mouseout", function(data, index) {
@@ -285,7 +299,7 @@ d3.csv("assets/js/data.csv").then(function(metricsData, err) {
 
 
 
-  // var circlesGroup = updateToolTip(chosenXAxis, circlesGroup);
+  var circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup);
 
 
 
@@ -314,11 +328,13 @@ d3.csv("assets/js/data.csv").then(function(metricsData, err) {
         // updates circles with new x values
         circlesGroup = renderCircles(circlesGroup, xLinearScale, chosenXAxis);
         circleText = renderCirclesText(circleText,xLinearScale, chosenXAxis);
+        circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup);
+
         // updates tooltips with new info
         // circlesGroup = updateToolTip(chosenXAxis, circlesGroup);
 
         // changes classes to change bold text
-        if (chosenXAxis === "poverty") {
+        if(chosenXAxis === "poverty") {
           povertyLabel
             .classed("active", true)
             .classed("inactive", false);
@@ -379,6 +395,8 @@ d3.csv("assets/js/data.csv").then(function(metricsData, err) {
         // updates circles with new x values
         circlesGroup = renderCirclesY(circlesGroup, yLinearScale, chosenYAxis);
         circleText = renderCirclesTextY(circleText,yLinearScale, chosenYAxis);
+        updateToolTip(chosenXAxis, chosenYAxis, circlesGroup);
+
         // updates tooltips with new info
         // circlesGroup = updateToolTip(chosenXAxis, circlesGroup);
         // obesity smokes healthcare

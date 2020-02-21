@@ -29,11 +29,13 @@
   fill: #fff;
   text-anchor: middle;
   font-size: 10px;
+  cursor: default;
 }
 
 .stateCircle {
   fill: #89bdd3;
   stroke: #e3e3e3;
+  cursor: pointer;
 }
 
 .chart {
@@ -51,6 +53,7 @@
   text-transform: capitalize;
   background: rgba(0, 0, 0, 0.8);
   border-radius: 4px;
+  
 }
 
 /* Mobile Rules */
