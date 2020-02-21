@@ -108,7 +108,7 @@ function xScale(dataForXAxis, chosenXAxis) {
   }
 
 
-  function updateToolTip(chosenXAxis, chosenYAxis,circlesGroup) {
+  function updateToolTip(chosenXAxis, chosenYAxis,circlesGroup, circlesText) {
 
     if (chosenXAxis === "poverty") {
       var labelx = "Poverty %:";
@@ -139,6 +139,7 @@ function xScale(dataForXAxis, chosenXAxis) {
       });
   
     circlesGroup.call(toolTip);
+    // circlesText.call(toolTip);
   
     circlesGroup.on("mouseover", function(data) {
       
@@ -150,9 +151,25 @@ function xScale(dataForXAxis, chosenXAxis) {
       // onmouseout event
       .on("mouseout", function(data, index) {
         toolTip.hide(data);
+        d3.select(this)
+        .style("stroke", " #e3e3e3")
+        .style("opacity", 1);
       });
-  
-    return circlesGroup;
+    circlesText.on("mouseover", function(data) {
+      
+        toolTip.show(data);
+        d3.select(circlesGroup)
+        .style("stroke", "black")
+        .style("opacity", 1);
+      })
+        // onmouseout event
+        .on("mouseout", function(data, index) {
+          toolTip.hide(data);
+          d3.select(circlesGroup)
+          .style("stroke", " #e3e3e3")
+          .style("opacity", 1);
+        });
+    return circlesGroup,circlesText;
   }
   
 
@@ -299,8 +316,8 @@ d3.csv("assets/js/data.csv").then(function(metricsData, err) {
 
 
 
-  var circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup);
-
+  var circlesGroup, circleText = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, circleText);
+  
 
 
 

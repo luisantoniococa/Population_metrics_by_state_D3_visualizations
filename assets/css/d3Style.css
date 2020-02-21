@@ -30,6 +30,7 @@
   text-anchor: middle;
   font-size: 10px;
   cursor: default;
+  -webkit-user-select: none; 
 }
 
 .stateCircle {
