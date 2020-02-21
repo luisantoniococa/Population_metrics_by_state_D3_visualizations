@@ -86,7 +86,7 @@ function xScale(dataForXAxis, chosenXAxis) {
 
     circlesText.transition()
       .duration(1000)
-      .attr("x", d => newXScale(d[chosenXAxis])-12);
+      .attr("x", d => newXScale(d[chosenXAxis]));
   
     return circlesText;
   }
@@ -207,16 +207,16 @@ d3.csv("assets/js/data.csv").then(function(metricsData, err) {
     .attr("cx", d => xLinearScale(d[chosenXAxis]))
     .attr("cy", d => yLinearScale(d[chosenYAxis]))
     .attr("r", 10)
-    .attr("fill", "lightblue")
+    .classed("stateCircle",true)
     .attr("opacity", ".8");
 
   var circleText = chartGroup.selectAll(".circleText")
   .data(metricsData)
   .enter()
   .append('text')
-  .attr("x", d => xLinearScale(d[chosenXAxis])-12)
+  .attr("x", d => xLinearScale(d[chosenXAxis]))
   .attr("y", d => yLinearScale(d[chosenYAxis])+5)
-  .attr("color","grey")
+  .classed("stateText",true)
   .text(d=>d.abbr);
 
   // Create group for  3 x- axis labels
