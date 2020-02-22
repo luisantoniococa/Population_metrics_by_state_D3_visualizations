@@ -130,12 +130,12 @@ function xScale(dataForXAxis, chosenXAxis) {
       var labely = "Lack of HealthCare %:";
     }
 
-  
+    
     var toolTip = d3.tip()
       .attr("class", "d3-tip")
       .offset([80, -60])
       .html(function(d) {
-        return (`State : ${d.state} <br> ${labely} ${d[chosenYAxis]}<br>${labelx} ${d[chosenXAxis]} <br> <img src="https://3o15h033zmpwracwx2i00rqx-wpengine.netdna-ssl.com/wp-content/uploads/2017/02/welcome_to_florida_sign.jpg" alt="Smiley face" height="42" width="42">`);
+        return (`State : ${d.state} <br> ${labely} ${d[chosenYAxis]}<br>${labelx} ${d[chosenXAxis]} <br> <img src=${d.image} width="100 px" height = "100 px">`);
       });
   
     circlesGroup.call(toolTip);
@@ -158,16 +158,16 @@ function xScale(dataForXAxis, chosenXAxis) {
     circlesText.on("mouseover", function(data) {
       
         toolTip.show(data);
-        d3.select(circlesGroup)
-        .style("stroke", "black")
-        .style("opacity", 1);
+        // d3.select(circlesGroup)
+        // .style("stroke", "black")
+        // .style("opacity", 1);
       })
         // onmouseout event
         .on("mouseout", function(data, index) {
           toolTip.hide(data);
-          d3.select(circlesGroup)
-          .style("stroke", " #e3e3e3")
-          .style("opacity", 1);
+          // d3.select(circlesGroup)
+          // .style("stroke", " #e3e3e3")
+          // .style("opacity", 1);
         });
     return circlesGroup,circlesText;
   }
@@ -181,7 +181,7 @@ function xScale(dataForXAxis, chosenXAxis) {
 
 
 
-d3.csv("assets/js/data.csv").then(function(metricsData, err) {
+d3.csv("assets/js/data2.csv").then(function(metricsData, err) {
   if (err) throw err;
 
   // parse data
@@ -345,7 +345,7 @@ d3.csv("assets/js/data.csv").then(function(metricsData, err) {
         // updates circles with new x values
         circlesGroup = renderCircles(circlesGroup, xLinearScale, chosenXAxis);
         circleText = renderCirclesText(circleText,xLinearScale, chosenXAxis);
-        circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup);
+        circlesGroup,circleText = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup,circleText);
 
         // updates tooltips with new info
         // circlesGroup = updateToolTip(chosenXAxis, circlesGroup);
@@ -412,7 +412,8 @@ d3.csv("assets/js/data.csv").then(function(metricsData, err) {
         // updates circles with new x values
         circlesGroup = renderCirclesY(circlesGroup, yLinearScale, chosenYAxis);
         circleText = renderCirclesTextY(circleText,yLinearScale, chosenYAxis);
-        updateToolTip(chosenXAxis, chosenYAxis, circlesGroup);
+        circlesGroup,circleText = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup,circleText);
+
 
         // updates tooltips with new info
         // circlesGroup = updateToolTip(chosenXAxis, circlesGroup);
