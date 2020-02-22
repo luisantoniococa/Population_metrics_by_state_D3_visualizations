@@ -63,6 +63,12 @@ function stateImageUrl(state){
   return imgUrl;
 }
 // console.log(returnAString(stateImageUrl("Alabama")))
-
+function checkstate(array,  state){
+  return (array.state === state) ? true 
+}
 var test = stateImageUrl("Alabama")
 console.log(test)
+
+function filterData(promise){
+  promise.filter(checkstate(promise, "Alabama"))
+}
