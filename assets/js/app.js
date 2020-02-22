@@ -139,6 +139,7 @@ function xScale(dataForXAxis, chosenXAxis) {
       });
   
     circlesGroup.call(toolTip);
+    
     // circlesText.call(toolTip);
   
     circlesGroup.on("mouseover", function(data) {
