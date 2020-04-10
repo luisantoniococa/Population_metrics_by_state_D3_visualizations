@@ -1,38 +1,16 @@
 # Population_metrics_by_state_D3_visualizations
 
 ## Overview
-This project is an interactive dynamic D3 Visualization that compares data between multiple factors (Age, Poverty Level, Health Care and Household Income) by states. The project also includes a web scraper that collects png maps of the the 50 states. 
-- - - 
+This project is an interactive dynamic D3 Visualization that compares data between multiple factors (Age, Poverty Level, Health Care and Household Income) by states. The project also includes a web scraper that collects png maps of the the 50 states. It utilized HTML, JavaScript. D3 and JSON data 
 
 ## Background
 
-Welcome to the newsroom! You've just accepted a data visualization position for a major metro paper. You're tasked with analyzing the current trends shaping people's lives, as well as creating charts, graphs, and interactive elements to help readers understand your findings.
+The goal is to analyze the current trends shaping people's lives, as well as creating charts, graphs, and interactive elements to help understand data findings in health risks facing particular demographics. The project goes through information from the U.S. Census Bureau and the Behavioral Risk Factor Surveillance System.
 
-The editor wants to run a series of feature stories about the health risks facing particular demographics. She's counting on you to sniff out the first story idea by sifting through information from the U.S. Census Bureau and the Behavioral Risk Factor Surveillance System.
+The data set included with the assignment is based on 2014 ACS 1-year estimates: [https://factfinder.census.gov/faces/nav/jsf/pages/searchresults.xhtml](https://factfinder.census.gov/faces/nav/jsf/pages/searchresults.xhtml) The current data set incldes data on rates of income, obesity, poverty, etc. by state. MOE stands for "margin of error."
 
-The data set included with the assignment is based on 2014 ACS 1-year estimates: [https://factfinder.census.gov/faces/nav/jsf/pages/searchresults.xhtml](https://factfinder.census.gov/faces/nav/jsf/pages/searchresults.xhtml), but you are free to investigate a different data set. The current data set incldes data on rates of income, obesity, poverty, etc. by state. MOE stands for "margin of error."
-![Alt Text](https://github.com/luisantoniococa/Population_metrics_by_state_D3_visualizations/blob/master/screen-capture.gif)
-
-
-
-
-### Before You Begin
-
-1. Create a new repository for this project called `D3-challenge`. **Do not add this homework to an existing repository**.
-
-2. Clone the new repository to your computer.
-
-3. Inside your local git repository, create a directory for the D3 challenge. Use the folder name to correspond to the challenge: **D3_data_journalism**.
-
-4. This homeworks utilizes both **html** and **Javascript** so be sure to add all the necessary files. These will be the main files to run for analysis.
-
-5. Push the above changes to GitHub or GitLab.
-
-## Your Task
 
 ### Core Assignment: D3 Dabbler (Required Assignment)
-
-![4-scatter](Images/4-scatter.jpg)
 
 You need to create a scatter plot between two of the data variables such as `Healthcare vs. Poverty` or `Smokers vs. Age`.
 
@@ -67,17 +45,5 @@ While the ticks on the axes allow us to infer approximate values for each circle
 * Check out [David Gotz's example](https://bl.ocks.org/davegotz/bd54b56723c154d25eedde6504d30ad7) to see how you should implement tooltips with d3-tip.
 
 - - -
+![Alt Text](https://github.com/luisantoniococa/Population_metrics_by_state_D3_visualizations/blob/master/screen-capture.gif)
 
-### Assessment
-
-Your final product will be assessed on the following metrics:
-
-* Creation of a **new** repository on GitHub called `D3-Challenge` (note the kebab-case). Do not add to an already existing repo.
-
-* Completion of all steps in the core assignment
-
-* Coherency of scatter plot (labels, ticks)
-
-* Visual attraction
-
-* Professionalism
