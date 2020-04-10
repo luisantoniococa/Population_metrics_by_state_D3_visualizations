@@ -20,7 +20,7 @@ The JSON keys has the following structure:
 + `image`: it contains the url link to the gif/png file.
 + `state`: it contains the label of the state scraped.
 + `status` : it represets the scrape status, if succesful the scrape was executed properly and failed it will be later set as a flag to retry the scrape later. 
-
+![scraped results](https://github.com/luisantoniococa/Population_metrics_by_state_D3_visualizations/blob/master/scraper_results.png)
  
 ### D3 Interactive Scatterplots
 
@@ -43,30 +43,15 @@ In addition to the scatter plots the following details have been added to make t
 
 * Abbreviation of the States in each data point.
 
-* Create and situate your axes and labels to the left and bottom of the chart.
+* Dynamic animated axis that adjust with the data selected.
 
-* Note: You'll need to use `python -m http.server` to run the visualization. This will host the page at `localhost:8000` in your web browser.
++ Dynamic animated labels that shows details of the selected axis (data) when hover. In addition to a picture of the state from the scraped dataset.
+ + i.e. if the selected axis are obesity and Age, the tooltip will show the values for those axis for the hovered datapoint.  
+
 
 - - -
-
-### Bonus: Impress the Boss (Optional Assignment)
-
-Why make a static graphic when D3 lets you interact with your data?
-
-
-#### 1. More Data, More Dynamics
-
-You're going to include more demographics and more risk factors. Place additional labels in your scatter plot and give them click events so that your users can decide which data to display. Animate the transitions for your circles' locations as well as the range of your axes. Do this for two risk factors for each axis. Or, for an extreme challenge, create three for each axis.
-
-* Hint: Try binding all of the CSV data to your circles. This will let you easily determine their x or y values when you click the labels.
-
-#### 2. Incorporate d3-tip
-
-While the ticks on the axes allow us to infer approximate values for each circle, it's impossible to determine the true value without adding another layer of data. Enter tooltips: developers can implement these in their D3 graphics to reveal a specific element's data when the user hovers their cursor over the element. Add tooltips to your circles and display each tooltip with the data that the user has selected. Use the `d3-tip.js` plugin developed by [Justin Palmer](https://github.com/Caged)—we've already included this plugin in your assignment directory.
-
-![8-tooltip](Images/8-tooltip.gif)
-
-* Check out [David Gotz's example](https://bl.ocks.org/davegotz/bd54b56723c154d25eedde6504d30ad7) to see how you should implement tooltips with d3-tip.
+#### Conclusion
+The visualization is able provide valuable insights due to its interactivility. It also helps with providing more information in less space. 
 
 - - -
 
